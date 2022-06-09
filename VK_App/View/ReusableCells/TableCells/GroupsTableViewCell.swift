@@ -58,6 +58,10 @@ class GroupsTableViewCell: UITableViewCell {
         self.groupPic.image = groupPic
     }
      
+    func config(viewModel: GroupViewModel) {
+        self.groupName.text = viewModel.groupName
+        self.groupPic.image = viewModel.groupPic
+    }
 //
 //    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
 //        let tappedImage = tapGestureRecognizer.view as! UIImageView
