@@ -47,15 +47,8 @@ class UserPhotoCollectionViewCell: UICollectionViewCell {
 //        }
     }
     
-    func configure(userPhoto: PhotoData) {
-        guard let imageUrlString = userPhoto.photoSizes.last?.photoURL else { return }
-        self.userPic.kf.setImage(with: URL(string: imageUrlString))
-        self.userPic.contentMode = .scaleAspectFill
-    }
-    
-    func configure(userPhoto: RealmPhotos) {
-        let imageUrlString = userPhoto.smallPhoto
-        self.userPic.kf.setImage(with: URL(string: imageUrlString))
+    func config(photo: UIImage) {
+        self.userPic.image = photo
         self.userPic.contentMode = .scaleAspectFill
     }
 }

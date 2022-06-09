@@ -11,7 +11,14 @@ class NewsTextTableCell: UITableViewCell {
 
     @IBOutlet weak var newsTextLabel: UILabel!
     
+    override func prepareForReuse() {
+        if self.newsTextLabel.bounds.height >= 100 {
+            print("aliluya")
+        }
+    }
+    
     func configure(text: String) {
         newsTextLabel.text = text
     }
+    
 }

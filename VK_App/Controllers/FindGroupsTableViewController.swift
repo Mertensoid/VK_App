@@ -14,18 +14,29 @@ class FindGroupsTableViewController: UITableViewController {
     private var sortedGroups: [GroupData] = [] {
         didSet {
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.viewModels = self.factory.constructViewModels(from: self.sortedGroups)
             }
+            
         }
     }
     private var glassView = UIImageView()
     private var textField = UITextField()
     private var cancelButton = UIButton()
     private let networkService = NetworkService()
+    private let factory = GroupViewModelFactory()
+    private var viewModels: [GroupViewModel] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModels = factory.constructViewModels(from: sortedGroups)
         
         let headerView = UIView(
             frame: CGRect(
@@ -36,7 +47,7 @@ class FindGroupsTableViewController: UITableViewController {
         self.tableView.tableHeaderView = headerView
         
         textField = UITextField(frame: CGRect(x: 5, y: 5, width: headerView.frame.width - 10, height: 30))
-        textField.backgroundColor = UIColor.systemGray6
+        textField.backgroundColor = UIColor.brandGrey
         textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
@@ -86,8 +97,8 @@ class FindGroupsTableViewController: UITableViewController {
                 as? GroupsTableViewCell
         else { return UITableViewCell() }
         
-        let currentGroup = sortedGroups[indexPath.row]
-        cell.configure(group: currentGroup)
+        let currentGroup = viewModels[indexPath.row]
+        cell.config(viewModel: currentGroup)
         
         return cell
     }
@@ -169,41 +180,11 @@ extension FindGroupsTableViewController: UITextFieldDelegate {
         networkService.searchGroups(urlQI: urlQI) { [weak self] result in
             switch result {
             case .success(let groups):
-                //TODO: Заменить структуру sortedGroups новой структурой данных из JSON
                 self?.allGroups = groups
                 self?.sortedGroups = self!.allGroups
             case .failure(let error):
                 print(error)
             }
         }
-        
-//        sortedGroups = []
-//        for i in allGroups {
-//            let tempString = textField.text
-//            if i.groupName.hasPrefix(tempString!) {
-//                sortedGroups.append(i)
-//            }
-//        }
-//        tableView.reloadData()
-        
-        
-        
     }
 }
-
-//extension FindGroupsTableViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        sortedGroups = []
-//        for i in allGroups {
-//            if i.groupName.hasPrefix(searchText) {
-//                sortedGroups.append(i)
-//            }
-//        }
-//        tableView.reloadData()
-//    }
-//    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        sortedGroups = allGroups
-//        searchBar.endEditing(true)
-//    }
-//}

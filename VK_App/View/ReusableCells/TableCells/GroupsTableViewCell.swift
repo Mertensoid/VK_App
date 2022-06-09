@@ -21,7 +21,7 @@ class GroupsTableViewCell: UITableViewCell {
      
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        let touch: UITouch = touches.first as! UITouch
+        guard let touch = touches.first else { return }
         if (touch.view == groupPic) {
             UIView.animate(
                 withDuration: 2,
@@ -52,7 +52,16 @@ class GroupsTableViewCell: UITableViewCell {
         groupName.text = group.groupName
         groupPic.isUserInteractionEnabled = true
     }
+    
+    func config(groupName: String, groupPic: UIImage) {
+        self.groupName.text = groupName
+        self.groupPic.image = groupPic
+    }
      
+    func config(viewModel: GroupViewModel) {
+        self.groupName.text = viewModel.groupName
+        self.groupPic.image = viewModel.groupPic
+    }
 //
 //    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
 //        let tappedImage = tapGestureRecognizer.view as! UIImageView
