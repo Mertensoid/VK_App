@@ -78,6 +78,10 @@
 		84DBCE6027C261810085D92C /* GroupItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBCE5F27C261810085D92C /* GroupItems.swift */; };
 		84DBCE6227C3D1160085D92C /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBCE6127C3D1160085D92C /* GroupData.swift */; };
 		84DBCE6427C417250085D92C /* PhotoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBCE6327C417250085D92C /* PhotoItems.swift */; };
+		84DC21492843E39C00A3F4EB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC21482843E39C00A3F4EB /* UIColorExtension.swift */; };
+		84DC214E28521D2600A3F4EB /* UserPhotoCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC214D28521D2600A3F4EB /* UserPhotoCollectionCellViewModel.swift */; };
+		84DC215028521D5F00A3F4EB /* NewsTableHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC214F28521D5F00A3F4EB /* NewsTableHeaderViewModel.swift */; };
+		84DC2152285225B100A3F4EB /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC2151285225B100A3F4EB /* GroupViewModel.swift */; };
 		84E38B3027BCDA2D00877E42 /* VKLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E38B2F27BCDA2D00877E42 /* VKLoginVC.swift */; };
 		84E38B3327BEC5FC00877E42 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E38B3227BEC5FC00877E42 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
@@ -156,6 +160,10 @@
 		84DBCE5F27C261810085D92C /* GroupItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItems.swift; sourceTree = "<group>"; };
 		84DBCE6127C3D1160085D92C /* GroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupData.swift; sourceTree = "<group>"; };
 		84DBCE6327C417250085D92C /* PhotoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItems.swift; sourceTree = "<group>"; };
+		84DC21482843E39C00A3F4EB /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		84DC214D28521D2600A3F4EB /* UserPhotoCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		84DC214F28521D5F00A3F4EB /* NewsTableHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableHeaderViewModel.swift; sourceTree = "<group>"; };
+		84DC2151285225B100A3F4EB /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		84E38B2F27BCDA2D00877E42 /* VKLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginVC.swift; sourceTree = "<group>"; };
 		84E38B3227BEC5FC00877E42 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B5702C7BDE29B66B8E5D528D /* Pods-VK_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_App.debug.xcconfig"; path = "Target Support Files/Pods-VK_App/Pods-VK_App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +284,7 @@
 		84478883276F3E4600D3577F /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				84DC21472843E37C00A3F4EB /* Extensions */,
 				84DBCE4C27C1355F0085D92C /* JSON Mapping */,
 				84E38B3127BEC5E800877E42 /* Service */,
 				840B1E6C27ABEA53004A1FAD /* Animators */,
@@ -368,6 +377,7 @@
 		84A5767E27787736004361BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84DC214A28521CB800A3F4EB /* Factory */,
 				842B744C27CB4E8900D8F0E2 /* Realm */,
 				84A5768327787C42004361BE /* UserModel.swift */,
 				84A5768527787C9E004361BE /* GroupModel.swift */,
@@ -403,6 +413,24 @@
 				84AFB3A42801B978006D3D54 /* NewsLink.swift */,
 			);
 			path = "JSON Mapping";
+			sourceTree = "<group>";
+		};
+		84DC21472843E37C00A3F4EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84DC21482843E39C00A3F4EB /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84DC214A28521CB800A3F4EB /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				84DC214D28521D2600A3F4EB /* UserPhotoCollectionCellViewModel.swift */,
+				84DC214F28521D5F00A3F4EB /* NewsTableHeaderViewModel.swift */,
+				84DC2151285225B100A3F4EB /* GroupViewModel.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		84E38B3127BEC5E800877E42 /* Service */ = {
@@ -550,6 +578,7 @@
 			files = (
 				84118C8F2796F7F9001DEC84 /* NewsModel.swift in Sources */,
 				84A5768127787785004361BE /* GroupsTableViewCell.swift in Sources */,
+				84DC214E28521D2600A3F4EB /* UserPhotoCollectionCellViewModel.swift in Sources */,
 				840B1E5F27A83E41004A1FAD /* CustomSegue.swift in Sources */,
 				84DBCE5827C1412C0085D92C /* PhotoResponse.swift in Sources */,
 				84A5768627787C9E004361BE /* GroupModel.swift in Sources */,
@@ -565,6 +594,8 @@
 				840B1E6B27ABE997004A1FAD /* NavigationViewRotationForwardAnimator.swift in Sources */,
 				84118C9E2799331F001DEC84 /* NewsPictureTableCell.swift in Sources */,
 				84118CAF279E8BB9001DEC84 /* LoadingScreenVC.swift in Sources */,
+				84DC21492843E39C00A3F4EB /* UIColorExtension.swift in Sources */,
+				84DC215028521D5F00A3F4EB /* NewsTableHeaderViewModel.swift in Sources */,
 				847B322527B7B1F000D534B2 /* SessionSingleton.swift in Sources */,
 				8448D314280BDE9A00FD0469 /* PhotoService.swift in Sources */,
 				8448D310280B356100FD0469 /* Promises.swift in Sources */,
@@ -584,6 +615,7 @@
 				84DBCE5327C13B4B0085D92C /* FriendResponse.swift in Sources */,
 				84E38B3327BEC5FC00877E42 /* NetworkService.swift in Sources */,
 				84118C8D2796F7BE001DEC84 /* NewsTableViewController.swift in Sources */,
+				84DC2152285225B100A3F4EB /* GroupViewModel.swift in Sources */,
 				84DBCE5C27C143B50085D92C /* PhotoSize.swift in Sources */,
 				840B1E6E27ABEA83004A1FAD /* NavigationViewRotationBackwardAnimation.swift in Sources */,
 				840B1E7027ABF1EF004A1FAD /* CustomInteractiveTransition.swift in Sources */,

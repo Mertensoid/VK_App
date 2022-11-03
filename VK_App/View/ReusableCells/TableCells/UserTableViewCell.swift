@@ -21,7 +21,7 @@ class UserTableViewCell: UITableViewCell {
         currentAvatarView.isUserInteractionEnabled = true
         currentAvatarPic.isUserInteractionEnabled = true
         currentAvatarShadow.isUserInteractionEnabled = true
-        currentAvatarShadow.layer.borderColor = UIColor.red.cgColor
+        currentAvatarShadow.layer.borderColor = UIColor.brandRed.cgColor
         currentAvatarShadow.layer.borderWidth = 60.0
         currentAvatarShadow.layer.cornerRadius = currentAvatarPic.frame.height / 2
         currentAvatarShadow.layer.shadowColor = currentAvatarView.shadowColor.cgColor
@@ -31,18 +31,6 @@ class UserTableViewCell: UITableViewCell {
         currentAvatarPic.layer.cornerRadius = currentAvatarPic.frame.height / 2
         currentAvatarPic.clipsToBounds = true
         currentAvatarView.layer.cornerRadius = currentAvatarView.frame.height / 2
-    }
-    
-    func configView(_ user: FriendData) {
-        userName.text = user.surName + " " + user.name
-        let imageUrlString = user.friendPhoto
-        self.currentAvatarPic.kf.setImage(with: URL(string: imageUrlString))
-    }
-    
-    func configView(_ user: RealmFriends) {
-        userName.text = user.surName + " " + user.name
-        let imageUrlString = user.friendPhoto
-        self.currentAvatarPic.kf.setImage(with: URL(string: imageUrlString))
     }
     
     func config(userName: String, userPic: UIImage) {
@@ -84,7 +72,7 @@ class UserTableViewCell: UITableViewCell {
 
 class AvatarView: UIView {
     @IBInspectable var shadowOffset: CGSize = CGSize(width: 5, height: 5)
-    @IBInspectable var shadowColor: UIColor = UIColor.black
+    @IBInspectable var shadowColor: UIColor = UIColor.brandBlack
     @IBInspectable var shadowOpasity: Float = 1.0
 }
 
